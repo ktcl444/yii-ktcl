@@ -2,7 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
-
+$module = require __DIR__ . '/module.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -10,6 +10,11 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+    ],
+    'modules' =>[
+        'customer' => [
+            'class' => 'app\modules\customer\Module'
+        ]
     ],
     'components' => [
         'request' => [
@@ -43,6 +48,15 @@ $config = [
             ],
         ],
         'db' => $db,
+        'urlManager'=>array(
+            'showScriptName' => false, //去除index.php
+            'enablePrettyUrl' => true,
+            'rules'=>array(
+                'pattern1'=>'route1',
+                'pattern2'=>'route2',
+                'pattern3'=>'route3'
+            ),
+        ),
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -61,7 +75,8 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+//        'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['*'],
     ];
 
     $config['bootstrap'][] = 'gii';
