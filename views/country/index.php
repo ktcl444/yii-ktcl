@@ -9,6 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'Countries';
 $this->params['breadcrumbs'][] = $this->title;
+$pake = new \My\Pake\MyPake();
 ?>
 <div class="country-index">
 
@@ -16,6 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Country', ['create'], ['class' => 'btn btn-success']) ?>
+        <br>
+        <?= $pake->say()?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

@@ -20,6 +20,10 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '_prBaIwElLbE044xOQ3cLVJNMnVgliFy',
+
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -54,9 +58,20 @@ $config = [
             'rules'=>array(
                 'pattern1'=>'route1',
                 'pattern2'=>'route2',
-                'pattern3'=>'route3'
+                'pattern3'=>'route3',
             ),
         ),
+		
+		// 'urlManager'=>array(
+            // 'showScriptName' => false, //去除index.php
+            // 'enablePrettyUrl' => true,
+            // 'rules'=>array(
+                // 'pattern1'=>'route1',
+                // 'pattern2'=>'route2',
+                // 'pattern3'=>'route3',
+                // ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+            // ),
+        // ),
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
